@@ -1,0 +1,42 @@
+﻿@model MVCOnlineTicariOtomasyon.Models.Class.Current
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>CARİ GÜNCELLEME</h2>
+<br />
+
+
+@using (Html.BeginForm("CariGuncelle", "Cari", FormMethod.Post))
+{ 
+
+<div class="form-group">
+    @Html.HiddenFor(x => x.CurrentID)
+    @Html.Label("Hesap Sahibinin Adı")
+    @Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CurrentName, "", new { @color = "color:red" })
+    <br />
+    @Html.Label("Soyadı")
+    @Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.CurrentSurname, "", new { @color = "color:red" })
+    <br />
+    @Html.Label("Ünvanı")
+    @Html.TextBoxFor(x => x.CurrentTittle, new { @class = "form-control" })
+    <br />
+    @Html.Label("Şehir")
+    @Html.TextBoxFor(x => x.CurrentCity, new { @class = "form-control" })
+
+    <br />
+    @Html.Label("E-Mail")
+    @Html.TextBoxFor(x => x.CurrrentMail, new { @class = "form-control" })
+    <br />
+  
+    <br />
+    <button class="btn btn-primary" style="background-color:blueviolet">Güncelle</button>
+
+</div>
+
+}
+<form>
+</form>

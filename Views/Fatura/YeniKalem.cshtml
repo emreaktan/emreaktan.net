@@ -1,0 +1,38 @@
+﻿@model MVCOnlineTicariOtomasyon.Models.Class.InvoiceItem
+@{
+    ViewBag.Title = "YeniKalem";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Kalem Ekleme</h2>
+<br />
+<form class="form-group" method="post">
+
+    @Html.HiddenFor(x => x.InvoiceItemID)
+    @Html.Label("Açıklama")
+    @Html.TextBoxFor(x => x.Explanation, new { @class = "form-control" })
+
+    <br />
+
+    @Html.Label("Miktar")
+    @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+
+    <br />
+
+    @Html.Label("Birim Fiyat")
+    @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control" })
+
+    <br />
+
+    @Html.Label("Tutar")
+    @Html.TextAreaFor(x => x.Amount, new { @class = "form-control" })
+
+    <br />
+    @Html.Label("Fatura ID")
+    @Html.TextAreaFor(x => x.InvoiceId, new { @class = "form-control" })
+
+    <br />
+   
+    <button class="btn btn-primary">Kaydet</button>
+</form>

@@ -1,0 +1,39 @@
+﻿@using MVCOnlineTicariOtomasyon.Models.Class
+@model List<Current>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<table class="table table-hover">
+
+    <tr>
+
+        <th>Cari ID</th>
+        <th>Ad Soyad</th>
+
+        <th>Şehir</th>
+        <th>Mail</th> 
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CurrentID</td>
+            <td>@item.CurrentName @item.CurrentSurname </td>
+            <td>@item.CurrentCity</td>
+            <td>@item.CurrrentMail</td>
+            <td><a href="~/Cari/CariSil/@item.CurrentID" class="btn btn-warning">Hesabı Kapat</a> </td>
+            <td><a href="~/Cari/CariGetir/@item.CurrentID" class="btn btn-warning">Güncelle</a> </td>
+            <td><a href="~/Cari/MusteriSatis/@item.CurrentID" class="btn btn-warning">Detaylar</a> </td>
+
+        </tr>
+    }
+</table>
+
+<a href="~/Cari/YeniCari/ " class="btn btn-warning">Yeni Cari Ekle</a> 

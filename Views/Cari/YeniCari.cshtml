@@ -1,0 +1,33 @@
+﻿@model MVCOnlineTicariOtomasyon.Models.Class.Current
+@{
+    ViewBag.Title = "YeniCari";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Cari Hesap Ekleme Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+
+    @Html.Label("İsim")
+    @Html.TextBoxFor(x => x.CurrentName, new { @class = "form-control" })
+    <br />
+    @Html.Label("Soyisim")
+    @Html.TextBoxFor(x => x.CurrentSurname, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ünvan")
+    @Html.TextBoxFor(x => x.CurrentTittle, new { @class = "form-control" })
+    <br />
+    @Html.Label("Şehir")
+    @Html.TextBoxFor(x => x.CurrentCity, new { @class = "form-control" })
+    <br />
+    @Html.Label("E-Mail")
+    @Html.TextBoxFor(x => x.CurrrentMail, new { @class = "form-control" })
+    <br />
+    @Html.Label("Durum")
+    @Html.DropDownListFor(x => x.Status, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+  
+    <br />
+
+    <button class="btn btn-primary">KAYDET</button>
+
+</form>

@@ -1,0 +1,45 @@
+﻿@model MVCOnlineTicariOtomasyon.Models.Class.SaleTransaction
+@{
+    ViewBag.Title = "SatisYap";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<br />
+<h2>Ürün Satış Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+
+
+
+    @Html.Label("Ürün")
+    
+    @Html.DropDownListFor(x => x.ProductID, (List<SelectListItem>)ViewBag.satisDeger1, new { @class = "form-control" })
+
+    <br />
+    @Html.Label("Müşteri")
+    
+    @Html.DropDownListFor(x => x.CurrentID, (List<SelectListItem>)ViewBag.satisDeger2, new { @class = "form-control" })
+
+    <br />
+    @Html.Label("Personel")
+    
+    @Html.DropDownListFor(x => x.EmployeeID, (List<SelectListItem>)ViewBag.satisDeger3, new { @class = "form-control" })
+
+    <br />
+
+    @Html.Label("Adet")
+    @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+
+    <br />
+
+    @Html.Label("Fiyat")
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+
+    <br />
+
+    @Html.Label("Toplam Tutarı")
+    @Html.TextBoxFor(x => x.TotalAmount, new { @class = "form-control" })
+
+    <br />
+
+    <button class="btn btn-primary">Satış Yap</button>
+</form>

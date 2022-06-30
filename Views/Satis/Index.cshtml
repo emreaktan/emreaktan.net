@@ -1,0 +1,68 @@
+﻿@using MVCOnlineTicariOtomasyon.Models.Class
+@model List<SaleTransaction>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satış Listesi</h2>
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>ÜRÜN</th>
+            <th>MÜŞTERİ</th>
+            <th>PERSONEL</th>
+            <th>ADET</th>
+            <th>FİYAT</th>
+            <th>TOPLAM</th>
+            <th>TARİH</th>
+            <th>GÜNCELLE</th>
+            <th>DETAYLAR</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var satishareket in Model)
+        {
+
+            <tr>
+                <td>@satishareket.TransactionID</td>
+                <td>@satishareket.Product.ProductName</td>
+                <td>@satishareket.Current.CurrentName @satishareket.Current.CurrentSurname</td>
+                <td>@satishareket.Employee.EmployeeName @satishareket.Employee.EmployeeSurname</td>
+                <td>@satishareket.Quantity</td>
+                <td>@satishareket.Price</td>
+                <td>@satishareket.TotalAmount</td>
+                <td>@satishareket.SaleDate</td>
+
+                <td><a href="~/Satis/SatisGetir/@satishareket.TransactionID" class="btn btn-primary">Düzenle</a></td>
+                <td><a href="~/Satis/SatisDetay/@satishareket.TransactionID" class="btn btn-primary">DETAYA GİT</a></td>
+
+
+            </tr>
+
+
+        }
+    </tbody>
+</table>
+<a href="~/Satis/SatisYap/" class="btn btn-info">Satış Yap</a>
+
+
+@*<link href="~/Content/bootstrap.css" rel="stylesheet" />*@
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+<script>
+    $('#tbl1').dataTable({});
+</script>
